@@ -6,9 +6,9 @@ function App() {
   const router = useRoutes(routes);
 
   return (
-    <div className="m-5">
+    <div className="w-full p-6 h-[606px]">
       <Navbar />
-      {router}
+      <div className="w-full h-full bg-gray-800">{router}</div>
     </div>
   );
 }
