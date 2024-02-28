@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
 
 function Form() {
+  const navigate = useNavigate();
+
   const [cityName, setCityName] = useState("");
   const [tripTime, setTripTime] = useState("");
   const [tripeNote, setTripeNote] = useState("");
@@ -56,7 +59,14 @@ function Form() {
         <Button varient={"primary"} type="submit" onClick={() => {}}>
           Add
         </Button>
-        <Button varient={"secondary"} type="submit" onClick={() => {}}>
+        <Button
+          varient={"secondary"}
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate(-1);
+          }}
+        >
           ← Back
         </Button>
       </div>

@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 
 function Homepage() {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar />
@@ -20,7 +21,11 @@ function Homepage() {
             how you have wandered the world.
           </p>
           <Link to="/login"></Link>
-          <Button varient={"primary"} type="button" onClick={() => {}}>
+          <Button
+            varient={"primary"}
+            type="button"
+            onClick={() => navigate("login")}
+          >
             START TRACKING NOW
           </Button>
         </div>

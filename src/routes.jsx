@@ -19,7 +19,6 @@ export const routes = [
     path: "/app/*",
     element: <AppLayout />,
     children: [
-      { path: "", element: <CitiesList /> },
       { path: "cities", element: <CitiesList /> },
       { path: "cities/:id", element: <CityItem /> },
       { path: "countries", element: <CountryList /> },
