@@ -1,12 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { useSearchParams } from "react-router-dom";
 
-function Rightbar() {
+function Map() {
   const [searchParams, setSearchParams] = useSearchParams();
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
 
-  console.log(lat, lng, setSearchParams);
-  return <div>Rightbar</div>;
+  return <div>
+    
+  </div>;
 }
 
-export default Rightbar;
+export default Map;

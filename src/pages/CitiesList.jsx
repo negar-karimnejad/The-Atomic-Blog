@@ -1,10 +1,19 @@
 /* eslint-disable react/prop-types */
 import { Link, useNavigate, useParams } from "react-router-dom";
-import City, { formatDate } from "./City";
-import Message from "./Message";
+import City, { formatDate } from "../components/City";
+import Message from "../components/Message";
 import { useEffect, useState } from "react";
+import data from "../data/cities.json";
 
-function CitiesList({ cities, isLoading }) {
+function CitiesList() {
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setCities(data);
+    setIsLoading(false);
+  }, []);
   const [selectedCity, setSelectedCity] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
@@ -38,7 +47,8 @@ function CitiesList({ cities, isLoading }) {
           <p className="mb-8">{formatDate(selectedCity.date)}</p>
           <p className="text-[12px] text-gray-300">LEARN MORE</p>
           <Link
-            className="underline text-orange-300 mb-8" target="_blank"
+            className="underline text-orange-300 mb-8"
+            target="_blank"
             to={`https://en.wikipedia.org/wiki/${selectedCity.cityName}`}
           >
             Check out Used on Wikipedia →
