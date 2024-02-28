@@ -34,7 +34,9 @@ function Login() {
           </label>
           <div>
             <Link to={"/app/cities"}>
-              <Button>LOGIN</Button>
+              <Button varient={"primary"} type="button" onClick={() => {}}>
+                LOGIN
+              </Button>
             </Link>
           </div>
         </form>

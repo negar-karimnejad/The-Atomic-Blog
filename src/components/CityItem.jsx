@@ -35,12 +35,9 @@ function CityItem() {
         Check out Used on Wikipedia →
       </Link>
       <div>
-        <button
-          onClick={() => navigate("cities")}
-          className="border p-2 rounded-md"
-        >
-          ← BACK
-        </button>
+         <Button varient={"secondary"} type="button" onClick={() => navigate("cities")}>
+          ← Back
+        </Button>
       </div> */}
     </div>
   );

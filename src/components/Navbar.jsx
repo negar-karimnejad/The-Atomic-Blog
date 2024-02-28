@@ -22,7 +22,9 @@ function Navbar() {
           PRODUCT
         </Link>
         <Link to="/login">
-          <Button>LOGIN</Button>
+          <Button varient={"primary"} type="button" onClick={() => {}}>
+            LOGIN
+          </Button>
         </Link>
       </div>
     </div>

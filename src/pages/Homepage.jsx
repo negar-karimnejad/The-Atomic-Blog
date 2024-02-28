@@ -19,9 +19,10 @@ function Homepage() {
             of. Never forget your wonderful experiences, and show your friends
             how you have wandered the world.
           </p>
-          <Link to="/login">
-            <Button>START TRACKING NOW</Button>
-          </Link>
+          <Link to="/login"></Link>
+          <Button varient={"primary"} type="button" onClick={() => {}}>
+            START TRACKING NOW
+          </Button>
         </div>
         <div className="z-0 w-full h-full absolute top-0 left-0 bg-neutral-800 opacity-80"></div>
       </div>
