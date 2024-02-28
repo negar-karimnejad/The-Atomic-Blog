@@ -1,11 +1,22 @@
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import data from "../data/cities.json";
 import CitiesList from "./CitiesList";
+import CountryList from "./CountryList";
 
 function Leftbar() {
-  const { slug } = useParams();
 
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setCities(data);
+    setIsLoading(false);
+  }, []);
+  const slug = "cities";
   return (
-    <div className="flex flex-col  justify-between h-full items-center py-5">
+    <div className="flex flex-col justify-between h-full items-center p-5">
       <div className="flex flex-col items-center justify-center gap-10 w-full">
         <Link to={"/"}>
           <img src="/logo.png" alt="" className="w-56 object-cover" />
@@ -20,15 +31,20 @@ function Leftbar() {
             CITIES
           </Link>
           <Link
-            to="/app/contries"
+            to="/app/countries"
             className={`${
-              slug === "contries" && "bg-gray-900"
+              slug === "countries" && "bg-gray-900"
             } rounded-md py-1 px-3`}
           >
-            CONTRIES
+            COUNTRIES
           </Link>
         </div>
-        <CitiesList />
+        {slug === "cities" && (
+          <CitiesList cities={cities} isLoading={isLoading} />
+        )}
+        {slug === "countries" && (
+          <CountryList cities={cities} isLoading={isLoading} />
+        )}
       </div>
       <p className="text-sm text-gray-400">
         &copy; Copyright 2024 by WorldWise Inc.
