@@ -4,13 +4,13 @@ function AppNav() {
   return (
     <div className="flex bg-gray-700 rounded-md ">
       <NavLink
-        to="/app/cities"
+        to="cities"
         className="rounded-md py-1 px-3 aria-[current=page]:bg-gray-900"
       >
         CITIES
       </NavLink>
       <NavLink
-        to="/app/countries"
+        to="countries"
         className="rounded-md py-1 px-3 aria-[current=page]:bg-gray-900"
       >
         COUNTRIES

@@ -15,7 +15,7 @@ function City({ city }) {
 
   return (
     <Link
-      to={`/app/cities/${id}?lat=${position.lat}&lng=${position.lng}`}
+      to={`${id}?lat=${position.lat}&lng=${position.lng}`}
       className="border-l-4 border-l-green-500 flex rounded-md justify-between md:w-7/12 w-10/12 bg-gray-700 py-2 px-5"
     >
       <div className="flex items-center gap-4">
