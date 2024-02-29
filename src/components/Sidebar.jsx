@@ -6,7 +6,7 @@ import AppNav from "./AppNav";
 
 function Sidebar() {
   return (
-    <div className="flex flex-col justify-between h-screen items-center p-5 pb-16">
+    <div className="w-[33rem] flex flex-col justify-between h-screen items-center py-5 pb-16">
       <div className="flex flex-col items-center justify-center gap-10 w-full">
         <Logo />
         <AppNav />

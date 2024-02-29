@@ -21,7 +21,7 @@ function CityItem() {
   if (!currentCity) return <Loader />;
 
   return (
-    <div className="w-full bg-gray-700 rounded-md p-5 flex flex-col">
+    <div className="w-8/12 bg-gray-700 rounded-md p-5 flex flex-col">
       <p className="text-[12px] text-gray-300">CITY NAME</p>
       <p className="mb-8">
         {currentCity?.emoji}
