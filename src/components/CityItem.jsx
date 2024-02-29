@@ -1,28 +1,22 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
-import {
-  Link,
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { useCity } from "../context/cityContext";
 import { formatDate } from "../utilities/formatDate";
-import Button from "./Button";
+import BackButton from "./BackButton";
 import Loader from "./Loader";
 
 function CityItem() {
-  const navigate = useNavigate();
+  const { getCity, currentCity } = useCity();
   const [searchParams, setSearchParams] = useSearchParams();
   const { id } = useParams();
-  const { getCity, currentCity } = useCity();
 
   const lat = searchParams.get("lat");
   const lng = searchParams.get("lng");
 
   useEffect(() => {
     getCity(id);
-  }, [id, getCity]);
+  }, [id]);
 
   if (!currentCity) return <Loader />;
 
@@ -48,13 +42,7 @@ function CityItem() {
         Check out Used on Wikipedia →
       </Link>
       <div>
-        <Button
-          varient={"secondary"}
-          type="button"
-          onClick={() => navigate(-1)}
-        >
-          ← Back
-        </Button>
+        <BackButton />
       </div>
     </div>
   );
