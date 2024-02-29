@@ -3,14 +3,18 @@
 
 import { Link } from "react-router-dom";
 import { formatDate } from "../utilities/formatDate";
+import { useCity } from "../context/cityContext";
 
 function City({ city }) {
   const { id, emoji, cityName, date, position } = city;
+  const { currentCity } = useCity();
 
   return (
     <Link
       to={`${id}?lat=${position.lat}&lng=${position.lng}`}
-      className="border-l-4 border-l-green-500 flex rounded-md justify-between md:w-7/12 w-10/12 bg-gray-700 py-2 px-5"
+      className={`${
+        currentCity?.id === id && " border border-green-500"
+      } border-l-4 border-l-green-500  flex rounded-md justify-between md:w-7/12 w-10/12 bg-gray-700 py-2 px-5`}
     >
       <div className="flex items-center gap-4">
         <p>{emoji}</p>

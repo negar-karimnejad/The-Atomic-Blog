@@ -1,28 +1,21 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import data from "../data/cities.json";
 
 const CityContext = createContext();
 
 function CityContextProvider({ children }) {
-  const [cities, setCities] = useState([]);
-  const [city, setCity] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [cities, setCities] = useState(data);
+  const [currentCity, setCurrentCity] = useState(null);
 
-  const cityItem = (id) => {
-    const city = cities.find((city) => city.id === id);
-    setCity(city);
+  const getCity = (id) => {
+    setCurrentCity(cities.find((city) => city.id === Number(id)));
   };
 
-  useEffect(() => {
-    setIsLoading(true);
-    setCities(data);
-    setIsLoading(false);
-  }, []);
-
   return (
-    <CityContext.Provider value={{ cities, isLoading, cityItem, city }}>
+    <CityContext.Provider value={{ cities, getCity, currentCity }}>
       {children}
     </CityContext.Provider>
   );
@@ -33,4 +26,4 @@ function useCity() {
   return context;
 }
 
-export { useCity, CityContextProvider };
+export { CityContextProvider, useCity };

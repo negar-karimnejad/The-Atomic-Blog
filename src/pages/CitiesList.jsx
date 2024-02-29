@@ -2,11 +2,13 @@
 import City from "../components/City";
 import Message from "../components/Message";
 import { useCity } from "../context/cityContext";
+import Loader from "../components/Loader";
 
 function CitiesList() {
   const { isLoading, cities } = useCity();
 
-  if (isLoading) return <div className="loader"></div>;
+  if (isLoading) return <Loader />;
+
   if (!cities?.length)
     return (
       <Message
