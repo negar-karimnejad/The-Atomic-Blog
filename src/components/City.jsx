@@ -2,13 +2,7 @@
 /* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
-
-export const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(new Date(date));
+import { formatDate } from "../utilities/formatDate";
 
 function City({ city }) {
   const { id, emoji, cityName, date, position } = city;

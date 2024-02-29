@@ -1,18 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
 import Country from "../components/Country";
 import Message from "../components/Message";
-import data from "../data/cities.json";
+import { useCity } from "../context/cityContext";
 
 function CountryList() {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, cities } = useCity();
 
-  useEffect(() => {
-    setIsLoading(true);
-    setCities(data);
-    setIsLoading(false);
-  }, []);
 
   const countries = cities.reduce((curr, item) => {
     if (!curr.map((el) => el.country).includes(item.country))

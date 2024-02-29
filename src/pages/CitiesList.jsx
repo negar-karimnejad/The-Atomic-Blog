@@ -1,18 +1,10 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
 import City from "../components/City";
 import Message from "../components/Message";
-import data from "../data/cities.json";
+import { useCity } from "../context/cityContext";
 
 function CitiesList() {
-  const [cities, setCities] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setCities(data);
-    setIsLoading(false);
-  }, []);
+  const { isLoading, cities } = useCity();
 
   if (isLoading) return <div className="loader"></div>;
   if (!cities?.length)
