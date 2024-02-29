@@ -1,11 +1,16 @@
 import { useState } from "react";
 import BackButton from "../components/BackButton";
 import Button from "../components/Button";
+import { useSearchParams } from "react-router-dom";
 
 function Form() {
   const [cityName, setCityName] = useState("");
   const [tripTime, setTripTime] = useState("");
   const [tripeNote, setTripeNote] = useState("");
+
+  // const [searchParams] = useSearchParams();
+  // const mapLat = searchParams.get("lat");
+  // const mapLng = searchParams.get("lng");
 
   return (
     <form className="md:max-w-md w-5/6 mx-auto bg-slate-700 rounded-md px-8 p-5 mb-2">
