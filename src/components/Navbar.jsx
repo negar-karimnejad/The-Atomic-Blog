@@ -1,33 +1,46 @@
-import { Link } from "react-router-dom";
-import Button from "./Button";
-import Logo from "./Logo";
+import { useState } from "react";
+import { usePosts } from "../context/PostContext";
 
 function Navbar() {
-  const pathname = window.location.pathname;
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+
+  const { addPost } = usePosts();
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    if (!title || !body) return;
+    addPost({ title, body });
+    setTitle("");
+    setBody("");
+  };
 
   return (
-    <div className="absolute z-50 w-full right-0 top-0 px-20 py-12 flex items-center justify-between">
-      <Logo />
-      <div className="flex items-center gap-10 text-white font-medium">
-        <Link
-          to={"/pricing"}
-          className={`${pathname === "/pricing" && "text-green-400"}`}
-        >
-          PRICING
-        </Link>
-        <Link
-          to={"/product"}
-          className={`${pathname === "/product" && "text-green-400"}`}
-        >
-          PRODUCT
-        </Link>
-        <Link to="/login">
-          <Button varient={"primary"} type="button" onClick={() => {}}>
-            LOGIN
-          </Button>
-        </Link>
-      </div>
-    </div>
+    <form
+      onSubmit={submitHandler}
+      className="bg-purple-300 p-4 mb-4 gap-5 flex flex-col sm:flex-row items-center justify-center"
+    >
+      <input
+        className="w-full sm:w-auto px-2 py-1 mb-2 sm:mb-0 border border-gray-300 rounded-lg focus:outline-none"
+        type="text"
+        placeholder="Post title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+      <textarea
+        rows="1"
+        className="w-full sm:w-auto px-2 py-1 mb-2 sm:mb-0 border border-gray-300 rounded-lg focus:outline-none"
+        placeholder="Post body"
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
+      ></textarea>
+      <button
+        type="submit"
+        className="px-4 py-1 mb-2 sm:mb-0 bg-purple-500 rounded-lg dark:text-white"
+      >
+        Add Post
+      </button>
+    </form>
   );
 }
 
