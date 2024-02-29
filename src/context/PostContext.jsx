@@ -18,7 +18,6 @@ function PostContextProvider({ children }) {
   const [posts, setPosts] = useState(() =>
     Array.from({ length: 30 }, () => createRandomPost())
   );
-
   const clearPosts = () => {
     setPosts([]);
   };
@@ -62,3 +61,4 @@ function usePosts() {
 }
 
 export { PostContextProvider, usePosts };
+
