@@ -20,15 +20,12 @@ function Map() {
   const { cities } = useCity();
   const [mapPosition, setMapPosition] = useState([40, 0]);
 
+  const [mapLat, mapLng] = useUrlPosition();
   const {
     getPosition,
     position: geolocationPosition,
     isLoading,
   } = useGeolocation();
-
-  const [searchParams] = useSearchParams();
-  const mapLat = searchParams.get("lat");
-  const mapLng = searchParams.get("lng");
 
   useEffect(() => {
     if (mapLat && mapLng) setMapPosition([mapLat, mapLng]);
@@ -47,7 +44,7 @@ function Map() {
         </Button>
       )}
       <MapContainer
-        className="h-full"
+        className="h-full z-40"
         center={mapPosition}
         zoom={6}
         scrollWheelZoom={true}

@@ -2,7 +2,7 @@
 
 function Message({ message }) {
   return (
-    <div className="text-xl font-medium max-w-sm text-center">
+    <div className="text-lg font-medium max-w-sm text-center">
       <span role="img">👋</span> {message}
     </div>
   );

@@ -24,7 +24,7 @@ function CityItem() {
     <div className="w-8/12 bg-gray-700 rounded-md p-5 flex flex-col">
       <p className="text-[12px] text-gray-300">CITY NAME</p>
       <p className="mb-8">
-        {currentCity?.emoji}
+        <span className="text-green-500 text-xl">{currentCity?.emoji}</span>
         <span className="text-xl ml-4 font-medium">
           {currentCity?.cityName}
         </span>
