@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { useCity } from "../context/cityContext";
 import BackButton from "./BackButton";
 import Loader from "./Loader";
+import { formatDate } from "../utilities/formatDate";
 
 function CityItem() {
   const { getCity, currentCity } = useCity();
@@ -11,9 +12,9 @@ function CityItem() {
 
   useEffect(() => {
     getCity(id);
-  }, [ id]);
+  }, [id, getCity]);
 
-  // if (!currentCity) return <Loader />;
+  if (!currentCity) return <Loader />;
 
   return (
     <div className="w-8/12 bg-gray-700 rounded-md p-5 flex flex-col">
