@@ -1,19 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Button from "../components/Button";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useCity } from "../context/cityContext";
-import { useNavigate } from "react-router-dom";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
   const navigate = useNavigate();
+  const messageId = useId();
 
   const [cityName, setCityName] = useState("");
   const [countryName, setCountryName] = useState("");
@@ -43,7 +44,6 @@ function Form() {
         setCityName(data.city || data.locality || "");
         setCountryName(data.countryName || "");
         setEmoji(data.countryCode);
-        console.log(data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -56,7 +56,7 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newCity = {
-      id: new Date(),
+      id: messageId,
       cityName,
       country: countryName,
       emoji,

@@ -13,13 +13,19 @@ function CityContextProvider({ children }) {
   const getCity = (id) => {
     setCurrentCity(cities.find((city) => city.id === Number(id)));
   };
-  
+
   const addCity = (newCity) => {
     setCities([...cities, newCity]);
   };
 
+  const deleteCity = (id) => {
+    setCities((cities) => cities.filter((city) => city.id !== id));
+  };
+
   return (
-    <CityContext.Provider value={{ cities, getCity, addCity, currentCity }}>
+    <CityContext.Provider
+      value={{ cities, getCity, addCity, deleteCity, currentCity }}
+    >
       {children}
     </CityContext.Provider>
   );

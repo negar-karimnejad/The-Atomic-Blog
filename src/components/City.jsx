@@ -7,7 +7,7 @@ import { useCity } from "../context/cityContext";
 
 function City({ city }) {
   const { id, emoji, cityName, date, position } = city;
-  const { currentCity } = useCity();
+  const { currentCity, deleteCity } = useCity();
 
   return (
     <Link
@@ -23,7 +23,10 @@ function City({ city }) {
       <div className="flex items-center gap-4">
         <p>({formatDate(date)})</p>
         <button
-          onClick={() => {}}
+          onClick={(e) => {
+            e.preventDefault();
+            deleteCity(id);
+          }}
           className="w-5 h-5 bg-gray-800 rounded-full flex items-center justify-center pb-0.5 cursor-pointer transition-all hover:bg-orange-500"
         >
           &times;
