@@ -26,12 +26,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         cities: [...state.cities, action.payload],
+        currentCity: action.payload,
       };
 
     case "deleteCity":
       return {
         ...state,
         cities: state.cities.filter((city) => city.id !== action.payload),
+        currentCity: {},
       };
 
     default:
@@ -43,6 +45,7 @@ function CityContextProvider({ children }) {
   const [{ cities, currentCity }, dispatch] = useReducer(reducer, initialState);
 
   const getCity = (id) => {
+    if (String(id) === String(currentCity.id)) return;
     const data = cities.find((city) => String(city.id) === String(id));
     dispatch({ type: "getCity", payload: data });
   };

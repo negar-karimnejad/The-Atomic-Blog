@@ -1,17 +1,35 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Navbar from "../components/Navbar";
+import { useAuth } from "../context/AuthContext";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
+
+  const { login, isAuthenticated } = useAuth();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email || !password) return;
+    login(email, password);
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) return navigate("/app");
+  }, [isAuthenticated, navigate]);
 
   return (
     <>
       <Navbar />
       <div className="w-full h-full flex items-center justify-center">
-        <form className="mt-10 w-11/12 sm:max-w-lg font-medium text-lg text-white gap-5 bg-gray-600 flex flex-col p-10 rounded-lg">
+        <form
+          onSubmit={handleSubmit}
+          className="mt-10 w-11/12 sm:max-w-lg font-medium text-lg text-white gap-5 bg-gray-600 flex flex-col p-10 rounded-lg"
+        >
           <label htmlFor="email" className="flex flex-col gap-2">
             Email address
             <input
@@ -33,11 +51,11 @@ function Login() {
             />
           </label>
           <div>
-            <Link to={"/app/cities"}>
-              <Button varient={"primary"} type="button" onClick={() => {}}>
-                LOGIN
-              </Button>
-            </Link>
+            {/* <Link to={isAuthenticated ? "/app/cities" : ""}> */}
+            <Button varient={"primary"} type="submit">
+              LOGIN
+            </Button>
+            {/* </Link> */}
           </div>
         </form>
       </div>
