@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 import { useAuth } from "../context/AuthContext";
@@ -14,12 +14,11 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email || !password) return;
-    login(email, password);
+    if (email && password) login(email, password);
   };
 
   useEffect(() => {
-    if (isAuthenticated) return navigate("/app");
+    if (isAuthenticated) navigate("/app", { replace: true });
   }, [isAuthenticated, navigate]);
 
   return (
@@ -51,11 +50,9 @@ function Login() {
             />
           </label>
           <div>
-            {/* <Link to={isAuthenticated ? "/app/cities" : ""}> */}
             <Button varient={"primary"} type="submit">
               LOGIN
             </Button>
-            {/* </Link> */}
           </div>
         </form>
       </div>

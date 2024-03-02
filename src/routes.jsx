@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import Pricing from "./pages/Pricing";
 import Product from "./pages/Product";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 export const routes = [
   { path: "", element: <Homepage /> },
@@ -17,8 +18,13 @@ export const routes = [
   { path: "*", element: <PageNotFound /> },
   {
     path: "/app/*",
-    element: <AppLayout />,
+    element: (
+      <ProtectedRoute>
+        <AppLayout />
+      </ProtectedRoute>
+    ),
     children: [
+      { path: "", element: <CitiesList /> },
       { path: "cities", element: <CitiesList /> },
       { path: "cities/:id", element: <CityItem /> },
       { path: "countries", element: <CountryList /> },
