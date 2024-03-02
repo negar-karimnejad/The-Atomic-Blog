@@ -1,26 +1,63 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import data from "../data/cities.json";
 
 const CityContext = createContext();
 
+const initialState = {
+  cities: [],
+  currentCity: {},
+};
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "getCities":
+      return {
+        ...state,
+        cities: action.payload,
+      };
+    case "getCity":
+      return {
+        ...state,
+        currentCity: action.payload,
+      };
+
+    case "addCity":
+      return {
+        ...state,
+        cities: [...state.cities, action.payload],
+      };
+
+    case "deleteCity":
+      return {
+        ...state,
+        cities: state.cities.filter((city) => city.id !== action.payload),
+      };
+
+    default:
+      throw new Error("Unknown Action Type");
+  }
+};
+
 function CityContextProvider({ children }) {
-  const [cities, setCities] = useState(data);
-  const [currentCity, setCurrentCity] = useState(null);
+  const [{ cities, currentCity }, dispatch] = useReducer(reducer, initialState);
 
   const getCity = (id) => {
-    setCurrentCity(cities.find((city) => city.id === Number(id)));
+    const data = cities.find((city) => String(city.id) === String(id));
+    dispatch({ type: "getCity", payload: data });
   };
 
   const addCity = (newCity) => {
-    setCities([...cities, newCity]);
+    dispatch({ type: "addCity", payload: newCity });
   };
 
   const deleteCity = (id) => {
-    setCities((cities) => cities.filter((city) => city.id !== id));
+    dispatch({ type: "deleteCity", payload: id });
   };
+
+  useEffect(() => {
+    dispatch({ type: "getCities", payload: data });
+  }, []);
 
   return (
     <CityContext.Provider

@@ -12,7 +12,7 @@ function Button({ children, type, onClick, varient }) {
         }
         ${
           varient === "position" &&
-          "bg-green-500 hover:bg-green-600 absolute right-0 left-0 mx-auto bottom-10 w-52 px-2 shadow-md"
+          "bg-green-500 text-gray-950 hover:bg-green-600 absolute right-0 left-0 mx-auto bottom-10 w-52 px-2 shadow-md"
         } text-base z-50 font-medium rounded-md py-2 px-5 transition-all`}
     >
       {children}
