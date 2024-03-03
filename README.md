@@ -13,7 +13,7 @@ I appreciate your support in advance. ❤</p>
 ### <p align="center">🔧Technologies:</p>
 <div align="center" >
   
-![npm](https://img.shields.io/badge/npm-eb5e28?style=for-the-badge&logo=npm&logoColor=white)
+![npm](https://img.shields.io/badge/npm-32cf5e?style=for-the-badge&logo=npm&logoColor=white)
 ![react](https://img.shields.io/badge/react-eb5e28?style=for-the-badge&logo=react&logoColor=white)
 ![tailwindcss](https://img.shields.io/badge/tailwindcss-eb5e28?style=for-the-badge&logo=tailwindcss&logoColor=white)
   
