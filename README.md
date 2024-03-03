@@ -7,7 +7,7 @@
 <p align="center">To support me, give star⭐ to this repository please.
 I appreciate your support in advance. ❤</p>
 
-<img src="public/Screenshot (114).png"/>
+<img src="public/Screenshot (115).png"/>
 
 
 ### <p align="center">🔧Technologies:</p>
