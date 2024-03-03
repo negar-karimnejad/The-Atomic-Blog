@@ -4,10 +4,10 @@ function Pricing() {
   return (
     <>
       <Navbar />
-      <div className="pt-20 w-full gap-16 h-full flex items-center justify-center">
+      <div className="pt-28 max-md:pb-10 px-10 w-full gap-16 flex flex-col md:flex-row items-center">
         <div className="flex-1 flex justify-end">
-          <div className="text-white flex flex-col gap-10">
-            <h1 className="text-5xl font-medium leading-[60px]">
+          <div className="text-white max-md:text-center">
+            <h1 className="sm:text-4xl text-3xl font-medium md:leading-[50px] mb-5">
               Simple pricing.
               <br /> Just $9/month.
             </h1>
@@ -18,8 +18,13 @@ function Pricing() {
             </p>
           </div>
         </div>
-        <div className="flex-1 flex">
-          <img loading="lazy" src="/img-2.jpg" alt="" className="w-8/12 h-8/12" />
+        <div className="flex-1 flex max-md:justify-center">
+          <img
+            loading="lazy"
+            src="/img-2.jpg"
+            alt="pricing image"
+            className="lg:w-7/12 lg:h-7/12"
+          />
         </div>
       </div>
     </>

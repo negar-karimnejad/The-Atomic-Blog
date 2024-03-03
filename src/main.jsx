@@ -8,7 +8,7 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <BrowserRouter>
-    <div className="w-full p-6 h-[606px]">
+    <div className="w-full p-6 md:h-[606px]">
       <Suspense fallback={<FullpageLoader />}>
         <App />
       </Suspense>
