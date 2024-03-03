@@ -14,7 +14,6 @@ function Navbar() {
   return (
     <div className="absolute z-50 w-full right-0 top-0 md:px-20 px-10 py-12 flex items-center justify-between">
       <Logo />
-
       <NavLink />
 
       {/* Mobile Menu */}

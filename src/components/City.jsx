@@ -3,7 +3,7 @@
 
 import { Link } from "react-router-dom";
 import { formatDate } from "../utilities/formatDate";
-import { useCity } from "../context/cityContext";
+import { useCity } from "../context/CityContext";
 
 function City({ city }) {
   const { id, emoji, cityName, date, position } = city;

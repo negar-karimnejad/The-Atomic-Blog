@@ -11,10 +11,10 @@ import {
 } from "react-leaflet";
 
 import { useNavigate } from "react-router-dom";
-import { useCity } from "../context/cityContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Button from "./Button";
+import { useCity } from "../context/CityContext";
 
 function Map() {
   const { cities } = useCity();

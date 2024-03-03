@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Country from "../components/Country";
 import Message from "../components/Message";
-import { useCity } from "../context/cityContext";
+import { useCity } from "../context/CityContext";
 
 function CountryList() {
   const { isLoading, cities } = useCity();

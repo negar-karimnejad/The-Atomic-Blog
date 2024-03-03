@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 
 function Homepage() {
   const navigate = useNavigate();
+  
   return (
     <>
       <Navbar />

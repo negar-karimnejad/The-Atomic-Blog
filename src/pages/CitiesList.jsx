@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import City from "../components/City";
-import Message from "../components/Message";
-import { useCity } from "../context/cityContext";
 import Loader from "../components/Loader";
+import Message from "../components/Message";
+import { useCity } from "../context/CityContext";
 
 function CitiesList() {
   const { isLoading, cities } = useCity();

@@ -7,8 +7,8 @@ import BackButton from "../components/BackButton";
 import Button from "../components/Button";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { useCity } from "../context/cityContext";
 import { useUrlPosition } from "../hooks/useUrlPosition";
+import { useCity } from "../context/CityContext";
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 

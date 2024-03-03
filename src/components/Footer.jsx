@@ -1,5 +1,3 @@
-
-
 function Footer() {
   return (
     <p className="text-sm text-gray-400">

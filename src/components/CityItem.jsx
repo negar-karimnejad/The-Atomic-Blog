@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useCity } from "../context/cityContext";
 import BackButton from "./BackButton";
 import Loader from "./Loader";
 import { formatDate } from "../utilities/formatDate";
+import { useCity } from "../context/CityContext";
 
 function CityItem() {
   const { getCity, currentCity } = useCity();
@@ -26,7 +26,7 @@ function CityItem() {
       <p className="text-[12px] text-gray-300">
         YOU WENT TO {currentCity.cityName} ON
       </p>
-      {/* <p className="mb-8">{formatDate(currentCity.date)}</p> */}
+      <p className="mb-8">{formatDate(currentCity.date)}</p>
       <p className="text-[12px] text-gray-300">LEARN MORE</p>
       <Link
         className="underline text-orange-300 mb-8"
