@@ -19,7 +19,7 @@ function Pricing() {
           </div>
         </div>
         <div className="flex-1 flex">
-          <img src="/img-2.jpg" alt="" className="w-8/12 h-8/12" />
+          <img loading="lazy" src="/img-2.jpg" alt="" className="w-8/12 h-8/12" />
         </div>
       </div>
     </>
