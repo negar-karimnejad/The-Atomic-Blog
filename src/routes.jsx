@@ -8,6 +8,7 @@ import Form from "./pages/Form";
 import ProtectedRoute from "./pages/ProtectedRoute";
 
 // Optimizing Bundle Size With Code Splitting
+
 const AppLayout = lazy(() => import("./pages/AppLayout"));
 const Homepage = lazy(() => import("./pages/Homepage"));
 const Login = lazy(() => import("./pages/Login"));

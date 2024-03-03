@@ -1,31 +1,26 @@
-import { Link } from "react-router-dom";
-import Button from "./Button";
+import { useState } from "react";
+import DropdownLink from "./DropdownLink";
 import Logo from "./Logo";
+import MobileMenu from "./MobileMenu";
+import NavLink from "./NavLink";
 
 function Navbar() {
-  const pathname = window.location.pathname;
+  const [isShow, setIsShow] = useState(false);
+
+  const toggleMenu = () => {
+    setIsShow((prev) => !prev);
+  };
 
   return (
-    <div className="absolute z-50 w-full right-0 top-0 px-20 py-12 flex items-center justify-between">
+    <div className="absolute z-50 w-full right-0 top-0 md:px-20 px-10 py-12 flex items-center justify-between">
       <Logo />
-      <div className="flex items-center gap-10 text-white font-medium">
-        <Link
-          to={"/pricing"}
-          className={`${pathname === "/pricing" && "text-green-400"}`}
-        >
-          PRICING
-        </Link>
-        <Link
-          to={"/product"}
-          className={`${pathname === "/product" && "text-green-400"}`}
-        >
-          PRODUCT
-        </Link>
-        <Link to="/login">
-          <Button varient={"primary"} type="button" onClick={() => {}}>
-            LOGIN
-          </Button>
-        </Link>
+
+      <NavLink />
+
+      {/* Mobile Menu */}
+      <div className="relative md:hidden">
+        <MobileMenu toggleMenu={toggleMenu} />
+        {isShow && <DropdownLink />}
       </div>
     </div>
   );
