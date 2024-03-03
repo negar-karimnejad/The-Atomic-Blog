@@ -24,7 +24,7 @@ function Login() {
   return (
     <>
       <Navbar />
-      <div className="w-full h-full flex items-center justify-center">
+      <div className="w-full h-screen flex items-center justify-center">
         <form
           onSubmit={handleSubmit}
           className="mt-10 w-11/12 sm:max-w-lg font-medium text-lg text-white gap-5 bg-gray-600 flex flex-col p-10 rounded-lg"

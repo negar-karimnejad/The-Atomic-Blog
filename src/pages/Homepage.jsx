@@ -7,7 +7,7 @@ function Homepage() {
   return (
     <>
       <Navbar />
-      <div className="relative bg-[url('/bg.jpg')] bg-cover bg-no-repeat bg-center w-full h-full text-white gap-5 text-xl text-center flex flex-col items-center justify-center">
+      <div className="relative bg-[url('/bg.jpg')] bg-cover bg-no-repeat bg-center w-full max-md:h-screen h-full text-white gap-5 text-xl text-center flex flex-col items-center justify-center">
         <div className="z-20 max-md:px-3 max-md:mt-10">
           <h1 className="lg:text-5xl text-4xl max-sm:text-3xl sm:px-5 font-medium mb-10 lg:leading-[60px]">
             You travel the world. <br />
