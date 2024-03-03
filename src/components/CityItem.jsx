@@ -1,10 +1,16 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useCity } from "../context/CityContext";
 import BackButton from "./BackButton";
 import Loader from "./Loader";
-import { formatDate } from "../utilities/formatDate";
-import { useCity } from "../context/CityContext";
+
+const formatDate = (date) =>
+  new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(date));
 
 function CityItem() {
   const { getCity, currentCity } = useCity();
