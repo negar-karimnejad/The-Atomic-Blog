@@ -21,7 +21,7 @@ function City({ city }) {
         <p>{cityName}</p>
       </div>
       <div className="flex items-center gap-4">
-        <p>({formatDate(date)})</p>
+        <p className="max-sm:hidden">({formatDate(date)})</p>
         <button
           onClick={(e) => {
             e.preventDefault();
