@@ -5,7 +5,7 @@
 # <p align="center" color="#eb5e28">World Wise</p>
 
 <p align="center">To support me, give star⭐ to this repository please.
-I appreciate your support in advance. ❤</p>
+I appreciate your support in advance. 💚</p>
 
 <img src="public/Screenshot (115).png"/>
 
